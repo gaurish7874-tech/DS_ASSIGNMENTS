@@ -1,28 +1,32 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main() {
-    int arr[100], n, i, j, k;
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
-    printf("Enter elements:\n");
-    for (i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
+    int arr[100], n;
+    cout << "Enter number of elements: ";
+    cin >> n;
 
-    for (i = 0; i < n; i++) {
-        for (j = i + 1; j < n; ) {
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    // Remove duplicates
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; ) {
             if (arr[i] == arr[j]) {
-                for (k = j; k < n - 1; k++)
+                // Shift elements left
+                for (int k = j; k < n - 1; k++)
                     arr[k] = arr[k + 1];
-                n--;
+                n--; // reduce size
             } else {
-                j++;
+                j++; // move forward
             }
         }
     }
 
-    printf("Array after removing duplicates:\n");
-    for (i = 0; i < n; i++)
-        printf("%d ", arr[i]);
+    cout << "Array after removing duplicates:\n";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+
     return 0;
 }
-
