@@ -17,9 +17,6 @@ public:
     void addEdge(int u, int v) {
         adjList[u].push_back(v);
         adjMatrix[u][v] = 1;
-        // For undirected graph:
-        // adjList[v].push_back(u);
-        // adjMatrix[v][u] = 1;
     }
 
     void printAdjList() {
@@ -68,4 +65,5 @@ int main() {
 
     return 0;
 }
+
 
